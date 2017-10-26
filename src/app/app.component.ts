@@ -46,6 +46,15 @@ export class MyApp {
         }) // save the token server-side and use it to push notifications to this device
       .catch(error => console.error('Error getting token', error));
       });
+
+      console.log('subscribing to emergency ... ');
+      
+      this.firebase.subscribe('emergency').then(res => {
+        console.log('subscribed to emergency!');
+        alert('subscribed to emergency!');
+      }, err => {
+        console.log(err);
+      });
       
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
